@@ -12,8 +12,7 @@ export default function Home() {
   return (
     <section className="min-h-screen flex flex-col overflow-x-hidden max-w-[100vw] w-full">
       <header className="min-h-screen bg-pearl-400 pt-[15px] px-[25px] md:p-5 flex flex-col md:items-center md:justify-center relative">
-        <div className="pt-[-25px] px-[25px] md:p-5 flex flex-col md:items-center md:justify-center relative">
-          {" "}
+        <div className="pt-[-75px] px-[25px] md:p-5 flex flex-col md:items-center md:justify-center relative">
           <HomepageAnimation />
         </div>
         <Navbar />

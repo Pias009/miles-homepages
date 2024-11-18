@@ -13,7 +13,7 @@ export default function HomepageAnimation() {
       // Set the initial positions of the cards
       (cards as NodeListOf<HTMLDivElement>).forEach((card, index) => {
         const angle = (index * 360) / images.length;
-        const radius = 450;
+        const radius = window.innerWidth <= 768 ? 250 : 450; // Adjust radius based on screen width
         const x = 50 + Math.cos((angle * Math.PI) / 180) * radius;
         const y = 50 + Math.sin((angle * Math.PI) / 180) * radius;
         card.style.transform = `translate(${x}px, ${y}px)`;
@@ -70,18 +70,20 @@ export default function HomepageAnimation() {
   }, []);
 
   return (
-    <div
-      ref={containerRef}
-      className="absolute w-[1140.51px] h-[1100.99px] border rounded-full flex justify-center items-center card-container"
-    >
-      {images.map((Image, index) => (
-        <div
-          key={index}
-          className="absolute card flex justify-center items-center"
-        >
-          {Image.icon}
-        </div>
-      ))}
+    <div className="min-h-screen bg-gray-100 flex justify-center items-center">
+      <div
+        ref={containerRef}
+        className="relative w-full max-w-[1140.51px] h-[500px] md:h-[600px] border rounded-full flex justify-center items-center card-container"
+      >
+        {images.map((Image, index) => (
+          <div
+            key={index}
+            className="absolute card flex justify-center items-center opacity-0 transition-opacity duration-500 ease-in-out"
+          >
+            {Image.icon}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

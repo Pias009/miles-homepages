@@ -12,9 +12,10 @@ export default function Home() {
   return (
     <section className="min-h-screen flex flex-col overflow-x-hidden max-w-[100vw] w-full">
       <header className="min-h-screen bg-pearl-400 pt-[15px] px-[25px] md:p-5 flex flex-col md:items-center md:justify-center relative">
-        <div className="pt-[-75px] px-[25px] md:p-5 flex flex-col md:items-center md:justify-center relative">
+        <div className="px-[25px] pt-[100px] md:p-5 flex flex-col md:items-center md:justify-center relative">
           <HomepageAnimation />
         </div>
+        
         <Navbar />
 
         <div className="flex flex-col items-center text-center max-w-[578px] z-10">
@@ -36,6 +37,7 @@ export default function Home() {
             Get started <PlayIcon />
           </Link>
         </div>
+
         <div className="md:hidden absolute bottom-14 left-0 flex justify-between w-full px-[25px]">
           <Image
             src="/images/laptop.png"

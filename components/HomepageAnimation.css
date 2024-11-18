@@ -1,0 +1,91 @@
+/* HomepageAnimation.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f0f0;
+}
+
+.circle-container {
+  position: relative;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: rotateCircle 12s infinite linear;
+}
+
+.circle-container .image {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border: 4px solid #333;
+  border-radius: 50%;
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+}
+
+@keyframes rotateCircle {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeOut {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.image:nth-child(odd) {
+  animation: fadeOut 12s infinite ease-in-out;
+  animation-delay: 0s;
+}
+
+.image:nth-child(even) {
+  animation: fadeOut 12s infinite ease-in-out;
+  animation-delay: 6s;
+}
+
+/* Positioning images in the circle */
+.image-1 {
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+.image-2 {
+  top: 90%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+.image-3 {
+  top: 50%;
+  left: 10%;
+  transform: translateX(-50%) translateY(-50%);
+}
+.image-4 {
+  top: 50%;
+  left: 90%;
+  transform: translateX(-50%) translateY(-50%);
+}
+.image-5 {
+  top: 30%;
+  left: 30%;
+  transform: translateX(-50%) translateY(-50%);
+}

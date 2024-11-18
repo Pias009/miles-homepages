@@ -14,20 +14,39 @@ export default function HomepageAnimation() {
       (cards as NodeListOf<HTMLDivElement>).forEach((card, index) => {
         const angle = (index * 360) / images.length;
         const radius = 540;
-        const x = 50 + Math.cos((angle * Math.PI) / 180) * radius;
-        const y = 50 + Math.sin((angle * Math.PI) / 180) * radius;
+        const x = 50 + Math.cos((angle * Math.PI) / 280) * radius;
+        const y = 50 + Math.sin((angle * Math.PI) / 280) * radius;
         card.style.transform = `translate(${x}px, ${y}px)`;
       });
 
-      // Animate the rotation of the cards
-      anime({
+      // Create the animation timeline
+      const timeline = anime.timeline({
+        loop: true, // Infinite loop
+        easing: "linear", // Continuous smooth easing
+      });
+
+      // Rotate by 5 degrees and then pause for 2 seconds, repeat this for 360 degrees
+      for (let i = 0; i < 360; i += 5) {
+        timeline
+          .add({
+            targets: ".card-container",
+            rotate: `+=5`, // Rotate by 5 degrees incrementally
+            duration: 1000, // Time for each 5-degree rotation
+            easing: "linear", // Linear easing for smooth rotation
+          })
+          .add({
+            targets: ".card-container",
+            duration: 2000, // Pause for 2 seconds after each 5-degree rotation
+            easing: "linear", // Maintain linear easing for the pause
+          });
+      }
+
+      // Add the final 360-degree rotation completion (after the loop)
+      timeline.add({
         targets: ".card-container",
-        duration: 10000,
-        loop: true,
-        rotate: "360deg",
-        easing: "linear",
-        direction: "normal",
-        autoplay: true,
+        rotate: `+=360`, // Complete the 360-degree rotation
+        duration: 1000, // Total duration for 360-degree rotation
+        easing: "linear", // Smooth linear easing
       });
     }
   }, []);

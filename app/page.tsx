@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-
+import HomepageAnimation from "@/components/HomepageAnimation";
 import Navbar from "@/components/Navbar";
 import Dot from "@/components/vectors/Dot";
 import PlayIcon from "@/components/vectors/PlayIcon";
@@ -12,7 +12,12 @@ export default function Home() {
   return (
     <section className="min-h-screen flex flex-col overflow-x-hidden max-w-[100vw] w-full">
       <header className="min-h-screen bg-pearl-400 pt-[15px] px-[25px] md:p-5 flex flex-col md:items-center md:justify-center relative">
+        <div className="pt-[-25px] px-[25px] md:p-5 flex flex-col md:items-center md:justify-center relative">
+          {" "}
+          <HomepageAnimation />
+        </div>
         <Navbar />
+
         <div className="flex flex-col items-center text-center max-w-[578px] z-10">
           <div className="bg-white rounded-[100px] mb-[30px] md:mb-3.5 border border-gray-2 px-2 py-1 flex items-center gap-x-1 text-xs md:text-sm text-dark">
             <Dot />
